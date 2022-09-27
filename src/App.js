@@ -1,4 +1,10 @@
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import contacts from "./data/contacts.json";
+import Header from "./components/Header";
+import ContactForm from "./components/ContactForm";
+import Contact from "./components/Contact";
+import { Card, Grid, List } from "@mui/material";
 
 // Uncomment untuk memuat daftar kontak
 // import contactsJSON from './data/contacts.json';
@@ -10,8 +16,35 @@ const App = () => {
   // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
 
+  const [contact, setContact] = useState(contacts);
+
+  const addContact = (newContact) => {
+    const newContactObject = {
+      name: newContact.name,
+      phone: newContact.phone,
+      email: newContact.email,
+    };
+
+    setContact([...contact, newContactObject]);
+  };
+
   return (
     <div className="App">
+      <Header />
+      <Grid
+        container
+        spacing={10}
+        sx={{ width: "100%", height: "100%", padding: 3 }}
+      >
+        <Grid item={true} md={6}>
+          <ContactForm fnAddContact={addContact} />
+        </Grid>
+        <Grid item={true} md={6}>
+          <Card>
+            <Contact data={contact} />
+          </Card>
+        </Grid>
+      </Grid>
     </div>
   );
 };
