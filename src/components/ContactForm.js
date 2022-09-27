@@ -51,7 +51,7 @@ const ContactForm = ({ fnAddContact }) => {
           />
           <TextField
             style={{ width: "100%", margin: "5px" }}
-            type="number"
+            type="text"
             name="phone"
             label="Phone"
             variant="filled"
@@ -62,7 +62,7 @@ const ContactForm = ({ fnAddContact }) => {
           />
           <TextField
             style={{ width: "100%", margin: "5px" }}
-            type="email"
+            type="text"
             name="email"
             label="Email"
             variant="filled"
@@ -73,7 +73,7 @@ const ContactForm = ({ fnAddContact }) => {
           />
           <TextField
             style={{ width: "100%", margin: "5px" }}
-            type="url"
+            type="text"
             name="photo"
             label="Photo URL"
             variant="filled"
