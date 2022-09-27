@@ -19,10 +19,7 @@ const ContactForm = ({ fnAddContact }) => {
 
   const inputHandler = (e) => {
     const { name, value } = e.target;
-    setInputData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setInputData({ ...inputData, [name]: value });
   };
 
   const submitHandler = (e) => {
@@ -38,9 +35,9 @@ const ContactForm = ({ fnAddContact }) => {
   };
 
   return (
-    <Card sx={{ padding: 4, backgroundColor: "#F7EDC8" }}>
-      <form onSubmit={submitHandler}>
-        <Stack spacing={2}>
+    <>
+      <Card sx={{ padding: 4, backgroundColor: "#F7EDC8" }}>
+        <form onSubmit={submitHandler}>
           <TextField
             style={{ width: "100%", margin: "5px" }}
             type="text"
@@ -50,6 +47,7 @@ const ContactForm = ({ fnAddContact }) => {
             value={inputData.name}
             onChange={inputHandler}
             required
+            fullWidth
           />
           <TextField
             style={{ width: "100%", margin: "5px" }}
@@ -60,6 +58,7 @@ const ContactForm = ({ fnAddContact }) => {
             value={inputData.phone}
             onChange={inputHandler}
             required
+            fullWidth
           />
           <TextField
             style={{ width: "100%", margin: "5px" }}
@@ -70,6 +69,7 @@ const ContactForm = ({ fnAddContact }) => {
             value={inputData.email}
             onChange={inputHandler}
             required
+            fullWidth
           />
           <TextField
             style={{ width: "100%", margin: "5px" }}
@@ -80,13 +80,14 @@ const ContactForm = ({ fnAddContact }) => {
             value={inputData.photo}
             onChange={inputHandler}
             required
+            fullWidth
           />
           <Button color="success" type="submit">
             ADD NEW
           </Button>
-        </Stack>
-      </form>
-    </Card>
+        </form>
+      </Card>
+    </>
   );
 };
 

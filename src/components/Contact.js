@@ -14,40 +14,34 @@ import {
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}
-const Contact = ({ data, styleName }) => {
+const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
   return (
-    <List sx={{ width: "100%", bgcolor: "#B8F4DB" }}>
-      {data.map((contact, i) => {
-        return (
-          <>
-            <ListItem key={i} alignItems="flex-start">
-              <ListItemAvatar>
-                <Avatar
-                  sx={{ width: 60, height: 60, marginRight: "1rem" }}
-                  src={contact.photo}
-                  alt={`pics-${i}`}
-                ></Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={
-                  <Typography component={"p"} sx={{ fontWeight: 500 }}>
-                    {contact.name}
-                  </Typography>
-                }
-                secondary={
-                  <>
-                    <Typography component={"p"}>{contact.phone}</Typography>
-                    <Typography component={"p"}>{contact.email}</Typography>
-                  </>
-                }
-              ></ListItemText>
-            </ListItem>
-            <Divider variant="inset" component="li" />
-          </>
-        );
-      })}
-    </List>
+    <>
+      <ListItem alignItems="flex-start">
+        <ListItemAvatar>
+          <Avatar
+            sx={{ width: 60, height: 60, marginRight: "1rem" }}
+            src={data.photo}
+            alt={`img-placeholder`}
+          ></Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={
+            <Typography component={"p"} sx={{ fontWeight: 500 }}>
+              {data.name}
+            </Typography>
+          }
+          secondary={
+            <>
+              <Typography component={"p"}>{data.phone}</Typography>
+              <Typography component={"p"}>{data.email}</Typography>
+            </>
+          }
+        ></ListItemText>
+      </ListItem>
+      <Divider variant="inset" component="li" />
+    </>
   );
 };
 

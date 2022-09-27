@@ -23,6 +23,7 @@ const App = () => {
       name: newContact.name,
       phone: newContact.phone,
       email: newContact.email,
+      photo: newContact.photo,
     };
 
     setContact([...contact, newContactObject]);
@@ -41,7 +42,11 @@ const App = () => {
         </Grid>
         <Grid item={true} md={6}>
           <Card>
-            <Contact data={contact} />
+            <List sx={{ width: "100%", bgcolor: "#D3F7C8" }}>
+              {contact.map((contactData, id) => (
+                <Contact data={contactData} key={id} />
+              ))}
+            </List>
           </Card>
         </Grid>
       </Grid>
